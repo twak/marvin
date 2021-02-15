@@ -1,0 +1,22 @@
+The arms tage an argument parameter (LEFT or RIGHT), defined to be -1 or 1 that is multiplied by some coordinates and constraints in order that the arm appears to have the correct dynamics
+
+The constraints were calculated by waving my arms and legs around and seeing how far they would move (not a good day to be in baskin), then applying this using tiral and error.
+
+Because we are just drawing pistons between points, the rotation of each point is not needed. For this reason the IK system only alloes two angles of rotation (similar to the polar coordinate system)
+
+Because the joint are not given the third degree of freedom, some of the constraints have been changed from human values. For example the elbow doesn't move left to right (in a "typing at a computer" position), the shoulder does. By allowing it to rotate left to right, it is possible to simulate the third degree without calculating it.  
+
+In order to make the trunk (body) of the robot not totally rigid, the arms were defined as starting from the neck, then continuing to the shoulders and down. By giving these joints a low degree of freedom, the back moves a little, but not a lot.
+
+In order to make the animation work, a static function was needed. In order to access and change animating variables, this access a static Robot pointer that returns our base class
+
+Animation technieques and schedular
+
+Stars - random polar coordinates used
+
+Stars, head, bike use lists, pistons always changing, so there is
+no point in them
+
+Animation schedular uses a pointers to points, so we can tell a animation sequence to go to a particular thing that is moving (eg- head or handlebar)
+
+Animations scheular uses different types of movement, linear, instant and angular. It stores events as a list and executes them sequentially

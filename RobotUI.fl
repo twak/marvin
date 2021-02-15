@@ -1,0 +1,39 @@
+# data file for the Fltk User Interface Designer (fluid)
+version 1.0102 
+header_name {.h} 
+code_name {.cxx}
+class RobotUI {open
+} {
+  Function {RobotUI()} {open
+  } {
+    Fl_Window mainWindow {
+      label {Marvin the robot} open
+      private xywh {540 472 390 355} type Double box UP_BOX labelsize 12 visible
+    } {
+      Fl_Group {} {open
+        xywh {-5 -9 867 449}
+      } {
+        Fl_Group VChange {open
+          xywh {5 100 37 192}
+        } {}
+        Fl_Group HChange {open
+          xywh {120 362 190 40}
+        } {}
+        Fl_Group MainView {open
+          xywh {-5 -9 459 449}
+        } {
+          Fl_Box cube {
+            label {This is the cube_view} selected
+            xywh {-5 -9 400 374} align 16
+            code0 {\#include "Robot.h"}
+            class Robot
+          }
+        }
+      }
+    }
+  }
+  Function {show(int argc, char **argv)} {open
+  } {
+    code {mainWindow->show(argc, argv);} {}
+  }
+} 
